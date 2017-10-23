@@ -1,6 +1,4 @@
-# ------------------------------------------------------------------------------
-#
-# Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+# Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,14 +11,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-# ------------------------------------------------------------------------------
 
-# Default node definition
-node "default" {
-  if $::use_hieradata == "true" {
-    hiera_include('classes')
-  } else {
-    class { "::${::product_name}": }
-  }
-}
+---
+servers:
+  -
+    enabled: true
+    hostname: am.dev.wso2.org
+    facters:
+      product_name: wso2am_runtime
+      product_version: 2.1.0
+      product_profile: default
+      environment: dev
+      platform: default
+      use_hieradata: true
+      pattern: pattern-0
+    box: ubuntu/trusty64
+    ip: 192.168.100.1
+    ram: 2048
+    cpu: 1
