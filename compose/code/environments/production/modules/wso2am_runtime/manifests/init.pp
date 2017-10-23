@@ -69,7 +69,6 @@ class wso2am_runtime (
   $pack_filename          = $wso2am_runtime::params::pack_filename,
   $pack_extracted_dir     = $wso2am_runtime::params::pack_extracted_dir,
   $patches_dir            = $wso2am_runtime::params::patches_dir,
-  $service_name           = $wso2am_runtime::params::service_name,
   $service_template       = $wso2am_runtime::params::service_template,
   $ipaddress              = $wso2am_runtime::params::ipaddress,
   $enable_secure_vault    = $wso2am_runtime::params::enable_secure_vault,
@@ -83,8 +82,6 @@ class wso2am_runtime (
   # Templated configuration parameters
   $master_datasources     = $wso2am_runtime::params::master_datasources,
   $registry_mounts        = $wso2am_runtime::params::registry_mounts,
-  $hostname               = $wso2am_runtime::params::hostname,
-  $mgt_hostname           = $wso2am_runtime::params::mgt_hostname,
   $worker_node            = $wso2am_runtime::params::worker_node,
   $usermgt_datasource     = $wso2am_runtime::params::usermgt_datasource,
   $local_reg_datasource   = $wso2am_runtime::params::local_reg_datasource,
@@ -98,32 +95,32 @@ class wso2am_runtime (
   $mb_store_datasource    = $wso2am_runtime::params::mb_store_datasource
 ) inherits wso2am_runtime::params {
 
-  validate_string($is_datasource)
+  # validate_string($is_datasource)
 
-  validate_hash($master_datasources)
-  if $registry_mounts != undef {
-    validate_hash($registry_mounts)
-  }
-  validate_string($hostname)
-  validate_string($mgt_hostname)
-  validate_bool($worker_node)
-  validate_string($usermgt_datasource)
-  validate_string($local_reg_datasource)
-  validate_hash($clustering)
-  validate_hash($dep_sync)
-  validate_hash($ports)
-  validate_hash($jvm)
-  validate_string($fqdn)
-  validate_hash($sso_authentication)
-  validate_hash($user_management)
-  validate_string($mb_store_datasource)
-  validate_bool($apply_publisher_specific_configurations)
-  validate_bool($apply_store_specific_configurations)
-  validate_bool($apply_gateway_specific_configurations)
-  validate_hash($analytics)
-  validate_bool($enable_log_analyzer)
-  validate_string($key_store)
-  validate_string($trust_store)
+  # validate_hash($master_datasources)
+  # if $registry_mounts != undef {
+  # validate_hash($registry_mounts)
+  #}
+  #validate_string($hostname)
+  #validate_string($mgt_hostname)
+  #validate_bool($worker_node)
+  #validate_string($usermgt_datasource)
+  #validate_string($local_reg_datasource)
+  #validate_hash($clustering)
+  #validate_hash($dep_sync)
+  #validate_hash($ports)
+  #validate_hash($jvm)
+  #validate_string($fqdn)
+  #validate_hash($sso_authentication)
+  #validate_hash($user_management)
+  #validate_string($mb_store_datasource)
+  #validate_bool($apply_publisher_specific_configurations)
+  #validate_bool($apply_store_specific_configurations)
+  #validate_bool($apply_gateway_specific_configurations)
+  #validate_hash($analytics)
+  #validate_bool($enable_log_analyzer)
+  #validate_string($key_store)
+  #validate_string($trust_store)
 
   class { '::wso2base':
     packages               => $packages,
