@@ -2,3 +2,5 @@
 puppet/
 puppetdb/
 puppetdb-postgres/
+*.zip
+*.tar.gz
